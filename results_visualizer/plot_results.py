@@ -66,7 +66,7 @@ def build_surface(df: pd.DataFrame, name: str, color_scale: str):
         y=df_sorted["threads"],
         z=df_sorted["avg_ms"],
         mode='markers',
-        marker=dict(size=4, color='black'),
+        marker=dict(size=2, color='black'),
         name=f'{name} (puntos)',
         visible=True
     )
