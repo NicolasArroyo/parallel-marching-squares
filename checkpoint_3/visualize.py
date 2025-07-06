@@ -41,7 +41,7 @@ def visualize_marching_squares(filename="lines.csv", output_filename="contour_pl
     fig, ax = plt.subplots(figsize=(10, 8)) # Adjusted for better viewing
     
     # Create a LineCollection object. This is MUCH faster than plotting in a loop.
-    line_collection = LineCollection(segments, colors='white', linewidths=0.5)
+    line_collection = LineCollection(segments, colors='white', linewidths=0.1)
     
     # Add the entire collection to the axes at once
     ax.add_collection(line_collection)
@@ -72,7 +72,7 @@ def visualize_marching_squares(filename="lines.csv", output_filename="contour_pl
     ax.autoscale()
     ax.set_aspect('equal', adjustable='box')
     
-    plt.savefig(output_filename, dpi=150) # Set DPI for better image quality
+    plt.savefig(output_filename, dpi=1000) # Set DPI for better image quality
     print(f"Plot successfully saved to '{output_filename}'")
 
 
