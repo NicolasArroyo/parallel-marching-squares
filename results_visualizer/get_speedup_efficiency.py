@@ -47,8 +47,8 @@ def write_results(results, filename, label):
         f.write('\n')
 
 if __name__ == '__main__':
-    results = parse_results('resultados_non_opt.txt')
+    results = parse_results('resultados_opt_new.txt')
     speedup, efficiency = compute_speedup_efficiency(results)
-    write_results(speedup, 'speedup_non_opt.txt', 'Speedup')
-    write_results(efficiency, 'efficiency_non_opt.txt', 'Efficiency')
+    write_results(speedup, 'speedup_opt_new.txt', 'Speedup')
+    write_results(efficiency, 'efficiency_opt_new.txt', 'Efficiency')
     print('Done!')

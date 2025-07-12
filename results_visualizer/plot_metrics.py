@@ -191,9 +191,9 @@ def build_figure(df_su_opt, df_su_no, df_eff_opt, df_eff_no):
 
 
 def main():
-    df_su_opt = parse_metric("speedup_opt.txt", "speedup")
+    df_su_opt = parse_metric("speedup_opt_new.txt", "speedup")
     df_su_no = parse_metric("speedup_non_opt.txt", "speedup")
-    df_eff_opt = parse_metric("efficiency_opt.txt", "efficiency")
+    df_eff_opt = parse_metric("efficiency_opt_new.txt", "efficiency")
     df_eff_no = parse_metric("efficiency_non_opt.txt", "efficiency")
 
     fig = build_figure(df_su_opt, df_su_no, df_eff_opt, df_eff_no)

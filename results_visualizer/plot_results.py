@@ -119,7 +119,7 @@ def plot_surfaces(df_opt, df_not_opt):
 
 
 def main():
-    df_opt = parse_results("resultados_opt.txt")
+    df_opt = parse_results("resultados_opt_new.txt")
     df_no_opt = parse_results("resultados_non_opt.txt")
     plot_surfaces(df_opt, df_no_opt)
 
