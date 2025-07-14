@@ -94,6 +94,31 @@ g++ -Xpreprocessor -fopenmp -lomp -I/opt/homebrew/opt/libomp/include -L/opt/home
 g++ -fopenmp marching_squares.cpp -o march -std=c++17
 ```
 
+### Run.sh
+
+En cada carpeta hay un archivo run.sh, en el cual automatizamos la ejecución de cada checkpoint del proyecto.
+```bash
+set -e
+
+CPP_SOURCE="marching_squares.cpp"
+EXECUTABLE_NAME="march"
+
+if [ -n "$2" ]; then
+  export OMP_NUM_THREADS=$2
+fi
+
+echo "Compilando el ejecutable: $CPP_SOURCE con OpenMP support..."
+g++ -fopenmp "$CPP_SOURCE" -o "$EXECUTABLE_NAME" -std=c++17
+echo "Compilación exitosa. Ejecutable creado: $EXECUTABLE_NAME"
+echo ""
+
+echo "Corriendo el ejecutable..."
+./"$EXECUTABLE_NAME" "$1"
+echo ""
+
+echo "Proceso completado."
+```
+
 ### Ejecución
 ```bash
 # Uso básico
@@ -135,31 +160,6 @@ El directorio `results_visualizer/` contiene scripts en Python para analizar el 
 ```bash
 cd results_visualizer/
 python plot_results.py
-```
-
-### Run.sh
-
-En cada carpeta hay un archivo run.sh, en el cual automatizamos la ejecución de cada checkpoint del proyecto.
-```bash
-set -e
-
-CPP_SOURCE="marching_squares.cpp"
-EXECUTABLE_NAME="march"
-
-if [ -n "$2" ]; then
-  export OMP_NUM_THREADS=$2
-fi
-
-echo "Compilando el ejecutable: $CPP_SOURCE con OpenMP support..."
-g++ -fopenmp "$CPP_SOURCE" -o "$EXECUTABLE_NAME" -std=c++17
-echo "Compilación exitosa. Ejecutable creado: $EXECUTABLE_NAME"
-echo ""
-
-echo "Corriendo el ejecutable..."
-./"$EXECUTABLE_NAME" "$1"
-echo ""
-
-echo "Proceso completado."
 ```
 
 ## 🔍 Análisis de rendimiento
